@@ -12,9 +12,9 @@
     <!-- Font Awesome Icons -->
     @stack('select2')
     @stack('styles')
-    <link rel="stylesheet" href="{{asset('assets')}}/backend/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{asset('backend')}}/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{asset('assets')}}/backend/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{asset('backend')}}/dist/css/adminlte.min.css">
     <style>
     input.ace-switch.ace-switch-yesno:checked::before {
         content: "{{ trans('global.yes') }}";

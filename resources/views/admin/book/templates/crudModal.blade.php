@@ -17,31 +17,29 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
                             <div class="form-group">
                                 <label for="group"
-                                    class="form-control-label mb-1">{{ trans('cruds.permission.fields.group') }}:
+                                    class="form-control-label mb-1">{{ trans('cruds.book.fields.group') }}:
                                     <span class="text-danger">*</span></label>
                                 <input id="group" name="group" class="form-control" type="text"
-                                    value="{{ old('group') }}"
-                                    placeholder="{{ trans('cruds.permission.fields.group') }}">
+                                    value="{{ old('group') }}" placeholder="{{ trans('cruds.book.fields.group') }}">
                                 <span class="text-danger error-text group_error"></span>
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
                             <div class="form-group">
                                 <label for="title"
-                                    class="form-control-label mb-1">{{ trans('cruds.permission.fields.title') }}:
+                                    class="form-control-label mb-1">{{ trans('cruds.book.fields.title') }}:
                                     <span class="text-danger">*</span></label>
                                 <input id="title" name="title" class="form-control" type="text"
-                                    placeholder="{{ trans('cruds.permission.fields.title') }}">
+                                    placeholder="{{ trans('cruds.book.fields.title') }}">
                                 <span class="text-danger error-text title_error"></span>
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="form-group">
                                 <div class="custom-control custom-switch">
-                                    <input id="permission_status" name="permission_status" class="custom-control-input"
+                                    <input id="book_status" name="book_status" class="custom-control-input"
                                         type="checkbox" checked>
-                                    <label class="custom-control-label"
-                                        for="permission_status">&nbsp;&nbsp;Status</label>
+                                    <label class="custom-control-label" for="book_status">&nbsp;&nbsp;Status</label>
                                 </div>
                             </div>
                         </div>

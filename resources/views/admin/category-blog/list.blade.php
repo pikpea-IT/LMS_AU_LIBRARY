@@ -15,8 +15,8 @@
         <tr id="record-{{ $row->id }}">
             <td>{{ $row->id }}</td>
             <td>
-                {{$row->name}} <br>
-                <span class="text-primary badge rounded-pill">{{$row->slug}}</span>
+                {{$row->cat_name}} <br>
+                <span class="text-primary badge rounded-pill">{{$row->cat_slug}}</span>
             </td>
             <td>
                 {{-- {{$row->status==1? "On":"OFF"}} --}}
@@ -25,10 +25,11 @@
                     class="ace-switch input-lg ace-switch-yesno bgc-green-d2 text-grey-m2" />
             </td>
             <td>
-                <a class="photoswipe" href="{{ $row->image }}" data-width="165" data-height="165"
-                    data-caption="  {{ $row->name }}">
+                <a class="photoswipe" href="{{ $row->cat_img }}" data-width="165" data-height="165"
+                    data-caption="  {{ $row->cat_name }}">
                     <img onerror="this.src='{{ asset('images/place_holder.png') }}'" width="48" height="48"
-                        src="{{ $row->image }}" class="rounded" style="object-fit:cover;width:48px">
+                        src="{{ asset('storage/category_blogs/'.$row->cat_img) }}" class="rounded"
+                        style="object-fit:cover;width:48px">
                 </a>
             </td>
             <td>
@@ -45,7 +46,7 @@
         @endforeach
         @else
         <tr>
-            <td colspan="6" align="center">
+            <td colspan="6" alignt="center">
                 {{ trans('No Data Found') }}
             </td>
         </tr>

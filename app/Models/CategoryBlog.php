@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class CategoryBlog extends Model
 {
    use HasFactory;
-  protected $table = 'category_blogs';
+  protected $table = 'category_bolgs';
 
   protected $fillable = [
     'cat_name',

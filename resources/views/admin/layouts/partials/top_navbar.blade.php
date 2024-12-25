@@ -41,7 +41,7 @@
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <div class="media" style="margin-top:-10px;">
-                    <img src="{{asset('assets')}}/backend/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
+                    <img src="{{asset('backend')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
                         alt="User Image" class="img-circle elevation-2" style="height:45px;">
                     <div class="media-body" style="margin-left:10px;">
                         <h4 class="dropdown-item-title">

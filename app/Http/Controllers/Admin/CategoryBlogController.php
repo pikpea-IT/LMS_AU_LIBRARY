@@ -4,12 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Permission;
 use App\Models\CategoryBlog;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
+// use Illuminate\Support\Facades\Request;
 use Flasher\Toastr\Laravel\Facade\Toastr;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Http\Request;
 
 class CategoryBlogController extends Controller
 {
@@ -40,49 +41,34 @@ class CategoryBlogController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'cat_name' => 'required',
-                'cat_slug' => 'required|unique:category_blogs,slug,' . $request->id,
-                'cat_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-                'status' => 'required',
+   
+        // dd($request->all());
 
-            ],
-            [],
-            [
-                'cat_name' => trans('Name'),
-                'cat_slug' => trans('Slug'),
-                'cat_img' => trans('Image'),
-                'status' => trans('Status'),
-            ]
-        );
-
-        if ($validator->fails()) {
-            $errors = $validator->errors()->getMessages();
-            $errors = array_reverse($errors);
-            foreach ($errors as $key => $error) {
-                Toastr::error($error[0]);
-            }
-            return redirect()->back()->withInput();
-        }
+        // if ($validator->fails()) {
+        //     $errors = $validator->errors()->getMessages();
+        //     $errors = array_reverse($errors);
+        //     foreach ($errors as $key => $error) {
+        //         Toastr::error($error[0]);
+        //     }
+        //     return redirect()->back()->withInput();
+        // }
 
         // Find existing record or create a new one
         $model = CategoryBlog::find($request->id) ?? new CategoryBlog();
-        $model->name = $request->name;
-        $model->slug = $request->slug;
+        $model->cat_name = $request->cat_name;
+        $model->cat_slug = $request->cat_slug;
 
         // Handle Image Upload
         if ($request->has('image')) {
             if ($request->id) {
-                $image_name = uploadImageReplace('category_blogs/', $model->image, 'png', $request->file('image'));
+                $image_name = uploadImageReplace('category_blogs/', $model->cat_img, 'png', $request->file('image'));
             } else {
                 $image_name = uploadImage('category_blogs/', 'png', $request->file('image'));
             }
         } else {
-            $image_name = @$model->image;
+            $image_name = @$model->cat_img;
         }
-        $model->image = $image_name;
+        $model->cat_img = $image_name;
 
         // Set Status
         $model->status = $request->status == 'on' || $request->status == 1 ? 1 : 0;
@@ -149,7 +135,7 @@ class CategoryBlogController extends Controller
 
     public function changeStatus(Request $request)
     {
-      abort_if(Gate::denies($this->prefix . 'edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    //   abort_if(Gate::denies($this->prefix . 'edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
       $response = CategoryBlog::find($request->id);
       $response->status = $request->status;
       $response->save();

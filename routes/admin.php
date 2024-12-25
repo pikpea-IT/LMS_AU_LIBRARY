@@ -18,7 +18,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
   Route::resource('generations', App\Http\Controllers\Admin\UserController::class)->except('create', 'update');
 
     // Route for Category Blog
-  Route::get('category-blogs/update/status', [App\Http\Controllers\Admin\CategoryBlogController::class, 'changeStatus'])->name('category-blogs.changeStatus');
+  Route::get('category-blogs/update/status', [App\Http\Controllers\Admin\CategoryBlogController::class, 'changeStatus'])->name('category_blogs.changeStatus');
   Route::resource('category-blogs', App\Http\Controllers\Admin\CategoryBlogController::class)->except('create', 'update');
 
 

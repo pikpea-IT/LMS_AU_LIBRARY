@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <img src="{{asset('assets')}}/backend/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+        <img src="{{asset('backend')}}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">{{env('APP_NAME')}}</span>
     </a>
@@ -11,7 +11,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{asset('assets')}}/backend/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
+                <img src="{{asset('backend')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
                     alt="User Image">
             </div>
             <div class="info">
@@ -35,6 +35,16 @@
                 </a>
             </li>
             @endcan
+
+            <li class="nav-item">
+                <a href="{{ route('admin.category-blogs.index') }}"
+                    class="nav-link {{ Request::is('admin/category-blogs') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Category Blog
+                    </p>
+                </a>
+            </li>
 
             {{-- Manage Books --}}
             <li class="nav-item ">
@@ -152,7 +162,7 @@
             @can('category-blog_access')
             <li class="nav-item">
                 <a href="{{ route('admin.category-blogs.index') }}"
-                    class="nav-link {{ Request::is('admin/category-blogs*') ? 'active' : null }}">
+                    class="nav-link {{ Request::is('admin/category-blog*') ? 'active' : null }}">
                     <i class="nav-icon fas fa-industry"></i>
                     <p>Report</p>
                 </a>
