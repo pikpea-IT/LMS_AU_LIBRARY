@@ -10,17 +10,18 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{asset('assets')}}/backend/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('backend') }}/plugins/fontawesome-free/css/all.min.css">
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="{{asset('assets')}}/backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('backend') }}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{asset('assets')}}/backend/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{ asset('backend') }}/dist/css/adminlte.min.css">
 </head>
 
 <body class="hold-transition login-page">
     <div class="login-box">
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
+            <img src="{{ url('images/Aulo.jpg') }}" alt="" class="img-circle elevation-2">
             <div class="card-header text-center">
                 <a href="{{ route('login') }}" class="h1"><b>Au</b> Admin</a>
             </div>
@@ -42,9 +43,9 @@
                                 </div>
                             </div>
                             @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                             @enderror
                         </div>
                     </div>
@@ -61,9 +62,9 @@
                                 </div>
                             </div>
                             @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                             @enderror
                         </div>
                     </div>
@@ -107,11 +108,11 @@
     <!-- /.login-box -->
 
     <!-- jQuery -->
-    <script src="{{asset('assets')}}/backend/plugins/jquery/jquery.min.js"></script>
+    <script src="{{ asset('backend') }}/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="{{asset('assets')}}/backend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('backend') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="{{asset('assets')}}/backend/dist/js/adminlte.min.js"></script>
+    <script src="{{ asset('backend') }}/dist/js/adminlte.min.js"></script>
 </body>
 
 </html>

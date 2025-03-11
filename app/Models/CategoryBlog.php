@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class CategoryBlog extends Model
 {
-   use HasFactory;
+  use HasFactory;
   protected $table = 'category_bolgs';
 
   protected $fillable = [
@@ -21,12 +21,12 @@ class CategoryBlog extends Model
 
   public function blogs()
   {
-    return $this->hasMany(Blog::class);
+    return $this->hasMany(CategoryBlog::class);
   }
 
   //Getter Attributes
-     public function getImageAttribute($value) {
-        return url(Storage::url('category_blogs/'.$value));
-    }
-
+  public function getImageAttribute($value)
+  {
+    return url(Storage::url('category_blogs/' . $value));
+  }
 }

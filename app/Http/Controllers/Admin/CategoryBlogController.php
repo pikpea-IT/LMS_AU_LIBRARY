@@ -2,26 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Permission;
 use App\Models\CategoryBlog;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Gate;
 // use Illuminate\Support\Facades\Request;
-use Flasher\Toastr\Laravel\Facade\Toastr;
-use Illuminate\Support\Facades\Validator;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Request;
 
 class CategoryBlogController extends Controller
 {
     protected $prefix = 'category_blog_';
-  protected $crudRoutePath = 'category_blogs';
+    protected $crudRoutePath = 'category_blogs';
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-    //    abort_if(Gate::denies($this->prefix . 'access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        //    abort_if(Gate::denies($this->prefix . 'access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $data['prefix'] = $this->prefix;
         $data['crudRoutePath'] = $this->crudRoutePath;
         $data['CategoryBlogs'] = CategoryBlog::latest()->get();
@@ -41,7 +36,7 @@ class CategoryBlogController extends Controller
      */
     public function store(Request $request)
     {
-   
+
         // dd($request->all());
 
         // if ($validator->fails()) {
@@ -79,7 +74,7 @@ class CategoryBlogController extends Controller
         // Toastr::success(trans('Saved successfully'));
 
         if ($model instanceof CategoryBlog) {
-            toastr()->success('Data has been saved successfully!');
+            toastr()->success('Data has been saved successfully!99');
 
             return redirect()->route('admin.category-blogs.index');
         }
@@ -115,30 +110,30 @@ class CategoryBlogController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-   public function destroy(string $id)
+    public function destroy(string $id)
     {
         try {
             CategoryBlog::find($id)->delete();
             $response = array(
-                // 'success' => false,
+                'success' => false,
                 'success' => 'Data has been deleted successfully!'
             );
         } catch (\Throwable $e) {
             $response = array(
-                // 'success' => true,
+                'success' => true,
                 'error' => $e->getMessage()
             );
         }
         return response()->json($response);
-        // return redirect()->route('admin.category-blogs.index')->with($response);
+        return redirect()->route('admin.category-blogs.index')->with($response);
     }
 
     public function changeStatus(Request $request)
     {
-    //   abort_if(Gate::denies($this->prefix . 'edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-      $response = CategoryBlog::find($request->id);
-      $response->status = $request->status;
-      $response->save();
-      return response()->json(['success' => 'Status has been change successfully!']);
+        //   abort_if(Gate::denies($this->prefix . 'edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $response = CategoryBlog::find($request->id);
+        $response->status = $request->status;
+        $response->save();
+        return response()->json(['success' => 'Status has been change successfully!']);
     }
 }

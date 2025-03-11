@@ -5,10 +5,12 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">About Us</a>
+            <a href="{{ route('admin.abouts.index') }}"
+                class="nav-link {{ Request::is('admin/abouts') ? 'active' : '' }}">About Us</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contect</a>
+            <a href="{{ route('admin.contects.index') }}"
+                class="nav-link {{ Request::is('admin/contects') ? 'active' : '' }}">Contect</a>
         </li>
     </ul>
 
@@ -41,7 +43,7 @@
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <div class="media" style="margin-top:-10px;">
-                    <img src="{{asset('backend')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
+                    <img src="{{ asset('backend') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
                         alt="User Image" class="img-circle elevation-2" style="height:45px;">
                     <div class="media-body" style="margin-left:10px;">
                         <h4 class="dropdown-item-title">
@@ -51,17 +53,23 @@
                     </div>
                 </div>
             </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-user mr-2"> </i>Profile
-                </a>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fas fa-cog mr-2"> </i>Setting
-                </a>
-                <a href="#" class="nav-link"
-                    onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
-                    <i class="nav-icon fas fa-fw fa-sign-out-alt"> </i>{{ trans('Logout') }}
-                </a>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-center">
+                        <a href="{{ route('admin.profiles.index') }}"
+                            class="nav-link {{ Request::is('admin/profiles') ? 'active' : '' }}">
+                            <i class="fas fa-user mr-2"> Profile</i>
+                        </a>
+                        <a href="{{ route('admin.settings.index') }}"
+                            class="nav-link {{ Request::is('admin/settings') ? 'active' : '' }}">
+                            <i class="fas fa-cog mr-2"> Setting</i>
+                        </a>
+                        <a href="#" class="nav-link"
+                            onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+                            <i class="nav-icon fas fa-fw fa-sign-out-alt"> </i>{{ trans('Logout') }}
+                        </a>
+                    </div>
+                </div>
             </div>
         </li>
         <li class="nav-item">
@@ -69,10 +77,10 @@
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
                 <i class="fas fa-th-large"></i>
             </a>
-        </li>
+        </li> --}}
     </ul>
 </nav>

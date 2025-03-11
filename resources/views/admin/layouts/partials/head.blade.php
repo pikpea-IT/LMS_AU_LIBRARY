@@ -12,24 +12,24 @@
     <!-- Font Awesome Icons -->
     @stack('select2')
     @stack('styles')
-    <link rel="stylesheet" href="{{asset('backend')}}/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('backend') }}/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{asset('backend')}}/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{ asset('backend') }}/dist/css/adminlte.min.css">
     <style>
-    input.ace-switch.ace-switch-yesno:checked::before {
-        content: "{{ trans('global.yes') }}";
-    }
+        input.ace-switch.ace-switch-yesno:checked::before {
+            content: "{{ trans('global.yes') }}";
+        }
 
-    input.ace-switch.ace-switch-yesno::before {
-        content: "{{ trans('global.no') }}";
-    }
+        input.ace-switch.ace-switch-yesno::before {
+            content: "{{ trans('global.no') }}";
+        }
 
-    input.ace-switch.ace-switch-onoff:checked::before {
-        content: "{{ trans('global.on') }}";
-    }
+        input.ace-switch.ace-switch-onoff:checked::before {
+            content: "{{ trans('global.on') }}";
+        }
 
-    input.ace-switch.ace-switch-onoff::before {
-        content: "{{ trans('global.off') }}";
-    }
+        input.ace-switch.ace-switch-onoff::before {
+            content: "{{ trans('global.off') }}";
+        }
     </style>
 </head>
